@@ -65,7 +65,7 @@ def predict():
                 recomendacion3="Hacer ejercicios de resistencia para aumentar la masa muscular.")
             case "1":
                 return render_template('recomendaciones.html', prediction_text='Peso Normal', 
-                recomendacion1="Mantener la dieta balanceadaa en nutrientes.", 
+                recomendacion1="Mantener la dieta balanceada en nutrientes.", 
                 recomendacion2="Evitar consumir alcohol y tabaco.", 
                 recomendacion3="Beber suficiente agua y limitar el consumo de bebidas con alto contenido calórico.")
             case "2":
