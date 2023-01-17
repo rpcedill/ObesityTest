@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Medidor de obesidad </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0 auto;
+            height: 100vh;
+            padding: 30px;
+            background-image: url("fondo2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment:fixed;
+        }
+        .box{
+            margin:0 auto; 
+            width:700px;
+            padding:50px;
+            background:#f9f9f9;
+            border:2px solid #333;
+        }
+
+    </style>
+</head>
+
+
+<div class="box">
+    <form action="{{url_for('predict')}}" method="post" class="row g-3">
+        <h1>Predice tu nivel de obesidad</h1>
+        <p>Responde las siguientes preguntas y te predeciremos que nivel de obesidad tienes.</p>
+        <div class="col-md-6">
+        <label class="form-label" for="genero">1. Género </label>
+        <select class="form-select" name="genero" id="genero" required>
+            <option value="5">Femenino</option>
+            <option value="6">Masculino</option>
+        </select></div>
+        <div class="col-md-6">
+        <label class="form-label"for="edad">2. Edad </label>
+        <input class="form-control" type="number" id="edad" name="edad"
+        min="0" max="150" required></div>
+        <div class="col-12">
+        <label class="form-label" for="pre3">3. ¿Su familia ha sufrido o sufre de sobrepeso? </label>
+        <select class="form-select" name="pre3" id="pre3" required>
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre4">4. ¿Frecuentemente consume comidas con alto nivel calórico? </label>
+        <select class="form-select" name="pre4" id="pre4" required>
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre7">5. ¿Consume comida entre comidas, como snacks? </label>
+        <select class="form-select" name="pre7" id="pre7" required>
+        <option value="14">No</option>
+        <option value="13">A veces</option>
+        <option value="12">Frecuentemente</option>
+        <option value="11">Siempre</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre10">6. ¿Monitorea la cantidad de calorias que come diariamente? </label>
+        <select class="form-select" name="pre10" id="pre10" required>
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre11">7. ¿Qué tan a menudo realiza actividad física? </label>
+        <select class="form-select" name="pre11" id="pre11">
+        <option value="0">No hago</option>
+        <option value="1">1 o 2 días</option>
+        <option value="3">2 o 4 días</option>
+        <option value="4">4 o 5 días</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre13">8. ¿Qué tan a menudo consume alcohol? </label>
+        <select class="form-select" name="pre13" id="pre13" required>
+        <option value="10">No consumo</option>
+        <option value="9">A veces</option>
+        <option value="8">Frecuentemente</option>
+        <option value="7">Siempre</option>
+        </select></div>
+        <div class="col-12">
+        <label class="form-label" for="pre14">9. ¿Qué tipo de transporte utiliza usualmente? </label>
+        <select class="form-select" name="pre14" id="pre14" required>
+        <option value="0">Automóvil</option>
+        <option value="2">Moto</option>
+        <option value="1">Bicicleta</option>
+        <option value="3">Transporte público</option>
+        <option value="4">Caminar</option>
+        </select></div>
+        <div class="d-grid">
+            <br>
+        <input type="submit" class="btn btn-primary" value="Enviar" />
+        </div>
+    </form>
+    <b> {{ prediction_text }} </b>
+
+</div>
+</html>
