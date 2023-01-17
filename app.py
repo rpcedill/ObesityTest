@@ -57,42 +57,42 @@ def predict():
 
         prediction = model.predict(df2[:1])
         prediction = str(np.argmax(prediction))
-        match prediction:
-            case "0":
-                return render_template('recomendaciones.html', prediction_text='Insuficiente Peso', 
-                recomendacion1="Consumir alimentos ricos en calorías y nutrientes, como frutas, verduras, proteínas y carbohidratos complejos.", 
-                recomendacion2="Consumir alimentos ricos en grasas saludables, como aguacate, nueces y semillas.", 
-                recomendacion3="Hacer ejercicios de resistencia para aumentar la masa muscular.")
-            case "1":
-                return render_template('recomendaciones.html', prediction_text='Peso Normal', 
-                recomendacion1="Mantener la dieta balanceada en nutrientes.", 
-                recomendacion2="Evitar consumir alcohol y tabaco.", 
-                recomendacion3="Beber suficiente agua y limitar el consumo de bebidas con alto contenido calórico.")
-            case "2":
-                return render_template('recomendaciones.html', prediction_text='Sobrepeso Nivel I', 
-                recomendacion1="Aumentar la actividad física, como ir por una caminata o natación. Apuntar al menos a hacer 150 minutos moderado de actividad aerobica.", 
-                recomendacion2="Monitorear las porciones de comida.", 
-                recomendacion3="Apuntar a dormir 8 horas, ya que puede afectar al peso y a la salud en general.")
-            case "3":
-                return render_template('recomendaciones.html', prediction_text='Sobrepreso Nivel II', 
-                recomendacion1="Implementar metas mesurables sobre pérdida de peso.", 
-                recomendacion2="Incorporar ejercicios de fuerza entre 2-3 veces a la semana.", 
-                recomendacion3="Evitar consumir comidas altas en azúcar.")
-            case "4":
-                return render_template('recomendaciones.html', prediction_text='Obesidad Tipo I', 
-                recomendacion1="Fijar metas realistas sobre la pérdidad de peso, como perder entre 5-10% del peso corporal en los primeros 6 meses.", 
-                recomendacion2="Seguir una dieta basada en tus necesidades y preferencias.", 
-                recomendacion3="Buscar apoyo de un profesional de la salud.")
-            case "5":
-                return render_template('recomendaciones.html', prediction_text='Obesidad Tipo II', 
-                recomendacion1="Incorporar entrenamiento de fuerza entre 2-3 días a la semana.", 
-                recomendacion2="Incorporar terapia conductual, terapia cognitiva u otra forma de terapia para manejar los aspectos psicológicos de la obesidad.", 
-                recomendacion3="Buscar apoyo médico multidisciplinario.")
-            case "6":
-                return render_template('recomendaciones.html', prediction_text='Obesidad Tipo III', 
-                recomendacion1="Consultar con un equipo multidisciplinario de médicos para desarrollar un plan de pérdida de peso personalizado.", 
-                recomendacion2="Revisar otro tipo de enfermedades provenientes de la obesidad como diabetes, hipertensión o apnea del sueño.", 
-                recomendacion3="Considerar una cirugía bariátrica.")
+        #match prediction:
+        if prediction=="0":
+            return render_template('recomendaciones.html', prediction_text='Insuficiente Peso', 
+            recomendacion1="Consumir alimentos ricos en calorías y nutrientes, como frutas, verduras, proteínas y carbohidratos complejos.", 
+            recomendacion2="Consumir alimentos ricos en grasas saludables, como aguacate, nueces y semillas.", 
+            recomendacion3="Hacer ejercicios de resistencia para aumentar la masa muscular.")
+        elif prediction== "1":
+            return render_template('recomendaciones.html', prediction_text='Peso Normal', 
+            recomendacion1="Mantener la dieta balanceada en nutrientes.", 
+            recomendacion2="Evitar consumir alcohol y tabaco.", 
+            recomendacion3="Beber suficiente agua y limitar el consumo de bebidas con alto contenido calórico.")
+        elif prediction== "2":
+            return render_template('recomendaciones.html', prediction_text='Sobrepeso Nivel I', 
+            recomendacion1="Aumentar la actividad física, como ir por una caminata o natación. Apuntar al menos a hacer 150 minutos moderado de actividad aerobica.", 
+            recomendacion2="Monitorear las porciones de comida.", 
+            recomendacion3="Apuntar a dormir 8 horas, ya que puede afectar al peso y a la salud en general.")
+        elif prediction== "3":
+            return render_template('recomendaciones.html', prediction_text='Sobrepreso Nivel II', 
+            recomendacion1="Implementar metas mesurables sobre pérdida de peso.", 
+            recomendacion2="Incorporar ejercicios de fuerza entre 2-3 veces a la semana.", 
+            recomendacion3="Evitar consumir comidas altas en azúcar.")
+        elif prediction== "4":
+            return render_template('recomendaciones.html', prediction_text='Obesidad Tipo I', 
+            recomendacion1="Fijar metas realistas sobre la pérdidad de peso, como perder entre 5-10% del peso corporal en los primeros 6 meses.", 
+            recomendacion2="Seguir una dieta basada en tus necesidades y preferencias.", 
+            recomendacion3="Buscar apoyo de un profesional de la salud.")
+        elif prediction== "5":
+            return render_template('recomendaciones.html', prediction_text='Obesidad Tipo II', 
+            recomendacion1="Incorporar entrenamiento de fuerza entre 2-3 días a la semana.", 
+            recomendacion2="Incorporar terapia conductual, terapia cognitiva u otra forma de terapia para manejar los aspectos psicológicos de la obesidad.", 
+            recomendacion3="Buscar apoyo médico multidisciplinario.")
+        elif prediction== "6":
+            return render_template('recomendaciones.html', prediction_text='Obesidad Tipo III', 
+            recomendacion1="Consultar con un equipo multidisciplinario de médicos para desarrollar un plan de pérdida de peso personalizado.", 
+            recomendacion2="Revisar otro tipo de enfermedades provenientes de la obesidad como diabetes, hipertensión o apnea del sueño.", 
+            recomendacion3="Considerar una cirugía bariátrica.")
 
 if __name__ == "__main__":
     app.run()
